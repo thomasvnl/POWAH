@@ -25,11 +25,7 @@ void loop(void)
 
   if (radio.available())
   {
-    bool done = false;  
-      
-    //while (!done)
-    //{
-      done = radio.read(msg, 1);
+      radio.read(msg, 1);
       char theChar = msg[0];
       if (msg[0] != 2)
       {
