@@ -1,0 +1,8 @@
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:44:49 -- 20-4-2015
+-999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:45:39 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:46:28 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:49:54 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:50:44 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:51:33 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:52:23 -- 20-4-2015
+humidity: -999.00 ;temp0: -999.00 ;temp1: 21.11 ;mbarAbs: 1032.04 ;mbarRel: 1032.06 ;Altitude: 0.10 < > 21:53:12 -- 20-4-2015

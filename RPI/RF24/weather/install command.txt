@@ -1,1 +1,1 @@
-g++ -Wall -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s -L /home/pi/rf24libs/RF24/  -lrf24-bcm weather.cpp -o weather
+g++ -Wall -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s -L /home/pi/RF/rf24libs/RF24/  -lrf24-bcm weather.cpp -o weather

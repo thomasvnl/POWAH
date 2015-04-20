@@ -43,7 +43,7 @@ SFE_BMP180 bmp180;
 
 //! Variables
 int sleepCounter 	= 0;
-int intervalSeconds	= 296; /*! in seconds */
+int intervalSeconds	= 40; /*! in seconds */
 int interval		= (int) ( intervalSeconds / 8.0 );
 int bmpOversampling = 3; // 0 - 3 for oversampling in the BMP180
 
@@ -234,6 +234,7 @@ double bmpMeasureAltitude()
 	#endif
 
 	altitude = bmp180.altitude( mbarAbs, mbarRel );
+
 	return altitude;
 }
 
@@ -248,8 +249,26 @@ String buildMessage( )
 		Serial.println( "BUILDING MSG" );
 	#endif
 	char buf[ messageSize ];
-	sprintf( buf, "hum:%3.2f;temp0:%3.2f;temp1:%3.2f;mbarAbs:%4.2f;mbarRel:%4.2f;alt:%4.2f", humidity, dhtTemp, bmpTemp, mbarAbs, mbarRel, altitude );
-	String msg = buf;
+	//sprintf( buf, "hum:%3.2f;temp0:%3.2f;temp1:%3.2f;mbarAbs:%4.2f;mbarRel:%4.2f;alt:%4.2f", humidity, dhtTemp, bmpTemp, mbarAbs, mbarRel, altitude );
+	String msg = "humidity: ";
+	dtostrf(humidity,1,2,buf);
+	msg += buf;
+	msg += " ;temp0: ";
+	dtostrf(dhtTemp,1,2,buf);
+	msg += buf;
+	msg += " ;temp1: ";
+	dtostrf(bmpTemp,1,2,buf);
+	msg += buf;
+	msg += " ;mbarAbs: ";
+	dtostrf(mbarAbs,1,2,buf);
+	msg += buf;
+	msg += " ;mbarRel: ";
+	dtostrf(mbarRel,1,2,buf);
+	msg += buf;
+	msg += " ;Altitude: ";
+	dtostrf(altitude,1,2,buf);
+	msg += buf;
+
 	return msg;
 }
 
@@ -265,7 +284,9 @@ void broadcastMessage( String msg )
 	#endif
 	//! Power up the radio
 	radioOn();
-
+	#ifdef DEBUG
+		Serial.println( msg);
+	#endif
 	//! Iterate through buffer until ending 0 found
 	for( int i = 0; i < msg.length(); i++ )
 	{
@@ -275,9 +296,12 @@ void broadcastMessage( String msg )
 
 	//! End Broadcast
 	int endBroadcast[1];
-	endBroadcast[0] = 2;
+	char endX = '#';
+	endBroadcast[0] = endX;
+	#ifdef DEBUG
+		Serial.println( endBroadcast[0]);
+	#endif
 	radio.write( endBroadcast , 1 ); 
-
 	//! Power down the radio
 	radioOff();
 
@@ -321,6 +345,7 @@ void setup( void )
 	//! Init the Radio
 	radio.begin();
 	radio.openWritingPipe( pipe );
+	radio.setChannel(0x4c);
 
 	// Power down the radio
 	radioOff();
