@@ -43,7 +43,7 @@ SFE_BMP180 bmp180;
 
 //! Variables
 int sleepCounter 	= 0;
-int intervalSeconds	= 40; /*! in seconds */
+int intervalSeconds	= 296; /*! in seconds */
 int interval		= (int) ( intervalSeconds / 8.0 );
 int bmpOversampling = 3; // 0 - 3 for oversampling in the BMP180
 
@@ -95,7 +95,7 @@ void sleep8s()
 		Serial.println( "TURNING ARDUINO INTO LOW POWER MODE" );
 		delay(50);
 	#endif 
-
+	delay(100);
 	LowPower.powerDown( SLEEP_8S, ADC_OFF, BOD_OFF );
 	sleepCounter++;
 }
@@ -349,6 +349,7 @@ void setup( void )
 
 	// Power down the radio
 	radioOff();
+	delay(100);
 
 	#ifdef DEBUG
 		Serial.println( "END OF SETUP" );
